@@ -28,7 +28,7 @@ public class SignUp extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 RequestDispatcher rd = request.getRequestDispatcher("/jsp/home.jsp"); // WebClass ±âÁØÀ¸·Î °æ·Î¸¦ Ã£À½
+		 RequestDispatcher rd = request.getRequestDispatcher("/jsp/home.jsp"); // WebClass ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ Ã£ï¿½ï¿½
          rd.forward(request, response);
 	}
 
