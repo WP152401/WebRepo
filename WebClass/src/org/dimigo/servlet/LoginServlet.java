@@ -35,8 +35,8 @@ public class LoginServlet extends HttpServlet {
     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // login.jsp Æ÷¿öµù
-      RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp"); // WebClass ±âÁØÀ¸·Î °æ·Î¸¦ Ã£À½
+      // login.jsp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      RequestDispatcher rd = request.getRequestDispatcher("/jsp/login.jsp"); // WebClass ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ Ã£ï¿½ï¿½
       rd.forward(request, response);
    }
 
@@ -50,19 +50,19 @@ public class LoginServlet extends HttpServlet {
       System.out.printf("id : %s pwd : %s\n", id, pwd);
       
       response.setContentType("text/html; charset=utf-8");
-      // id, pwd Á¤ÇÕ¼º Ã¼Å©
+      // id, pwd ï¿½ï¿½ï¿½Õ¼ï¿½ Ã¼Å©
       boolean result = true;
       
       if(result) {
-         // ¼¼¼Ç¿¡ »ç¿ëÀÚ Á¤º¸ »ý¼º
+         // ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
          HttpSession session = request.getSession();
          UserVO user = new UserVO();
          user.setId(id);
-         user.setName("È«±æµ¿");
-         user.setNickname("È«±æµ¿ÀÇ º°¸í");
+         user.setName("È«ï¿½æµ¿");
+         user.setNickname("È«ï¿½æµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
          session.setAttribute("user", user);
          
-         RequestDispatcher rd = request.getRequestDispatcher("/jsp/home.jsp"); // WebClass ±âÁØÀ¸·Î °æ·Î¸¦ Ã£À½
+         RequestDispatcher rd = request.getRequestDispatcher("/jsp/home.jsp"); // WebClass ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Î¸ï¿½ Ã£ï¿½ï¿½
          rd.forward(request, response);
       } else {
          request.setAttribute("msg", "error");
@@ -79,7 +79,7 @@ public class LoginServlet extends HttpServlet {
       
       response.setContentType("application/json charset=utf-8");
       PrintWriter out = response.getWriter();
-      // ³ë°¡´Ù
+      // ï¿½ë°¡ï¿½ï¿½
       /*
        * {
        *       "id" : id

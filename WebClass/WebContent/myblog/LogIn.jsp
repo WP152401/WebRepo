@@ -1,17 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <% 
+    String msg = (String)request.getAttribute("msg");
+    String id = request.getParameter("id");
+    id = (id == null) ? "" : id;
+    %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel ="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel ="stylesheet" type="text/css" href="/WebClass/css/bootstrap.css">
 </head>
 <body>
 <form id="form"  action="/WebClass/bloglogin" method = "post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" name = "id" id="id" aria-describedby="emailHelp" placeholder="Enter email" required>
+    <input type="email" class="form-control" name = "id" id="id" aria-describedby="emailHelp" placeholder="Enter email" value="<%=id %>" required>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
@@ -30,7 +35,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">·Î±×ÀÎ ¼º°ø</h5>
+        <h5 class="modal-title">ë¡œê·¸ì¸ ì‹¤íŒ¨</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -39,7 +44,7 @@
         <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='afterlogin.html'">´İ±â</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >ë‹«ê¸°</button>
       </div>
     </div>
   </div>
@@ -47,7 +52,21 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<script src="../js/login.js"></script>
+<script src="/WebClass/js/login.js"></script>
+<% 
+  if("error".equals(msg))
+  {
+%>
+<script>
+$(document).ready(function(){
+   var my_modal= $('#mymodal')
+   my_modal.modal()
+	my_modal.find('.modal-body').text("ë¡œê·¸ì¸ ì‹¤íŒ¨")
+});
+<%
+  }
+%>
+</script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 </body>
 </html>
