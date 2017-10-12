@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +30,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">ë¡œê·¸ì¸ ì„±ê³µ</h5>
+        <h5 class="modal-title">·Î±×ÀÎ ¼º°ø</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -37,7 +39,7 @@
         <p></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='afterlogin.html'">ë‹«ê¸°</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='afterlogin.html'">´Ý±â</button>
       </div>
     </div>
   </div>
