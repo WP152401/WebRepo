@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#form').submit(function(event){
-	console.log()
+	console.log();
 	//event.preventDefault()
 //	var my_modal= $('#mymodal')
 //	var id = $('#id').val()

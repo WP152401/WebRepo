@@ -20,23 +20,23 @@ UserVO user = (UserVO)session.getAttribute("user");
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">KS's blog</a>
+    <a class="navbar-brand" href="/WebClass/myblog/blog.jsp">KS's blog</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="beforelogin.html">고양이<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/cat.html" %>">고양이<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="beforelogin.html">개</a>
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/dog.html" %>">개</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="beforelogin.html">쿼카</a>
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/quokka.html" %>">쿼카</a>
       </li>
     </ul>
     
     <%
     if (user==null){
     %>
-    <button type="button" class="btn btn-primary" value="log" onClick="location.href='LogIn.jsp'">로그인</button>
+    <button type="button" class="btn btn-primary" value="log" onClick="location.href='/WebClass/myblog/LogIn.jsp'">로그인</button>
     
     <button type="button" class="btn btn-primary" value="log" onClick="location.href='sign_up.html'">회원가입 </button>
   <%
