@@ -1,0 +1,141 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="org.dimigo.vo.UserVO" %>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel ="stylesheet" type="text/css" href="/WebClass/css/bootstrap.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<%
+UserVO user = (UserVO)session.getAttribute("user");
+%>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="/WebClass/myblog/blog.jsp">KS's blog</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/cat.html" %>">고양이<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/dog.html" %>">개</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/quokka.html" %>">쿼카</a>
+      </li>
+    </ul>
+    
+    <%
+    if (user==null){
+    %>
+    <button type="button" class="btn btn-primary" value="log" onClick="location.href='/WebClass/myblog/LogIn.jsp'">로그인</button>
+    
+    <button type="button" class="btn btn-primary" value="log" onClick="location.href='sign_up.html'">회원가입 </button>
+  <%
+  }
+    else {
+  %>
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+	    <li class="nav-item dropdown">
+	      <a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    	<%= user.getName() %>님
+	      </a>
+	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
+	      	<form action="/WebClass/bloglogout" method="post">
+	      		<button type="submit" class="dropdown-item">Sign out</button>
+	      	</form>
+	       	<div class="dropdown-divider"></div>
+	        <button type="button" class="dropdown-item">Action1</button>
+	        <button type="button" class="dropdown-item">Action2</button>
+	      </div>
+	    </li>
+	    </ul>
+	    <%
+	    }%>
+  </div>
+</nav>
+<div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="/WebClass/js/image/cat.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Cat</h2>
+          <p></p>
+          <p><a class="btn btn-secondary" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/cat.html" %>"role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="/WebClass/js/image/dog.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Dog</h2>
+          <p></p>
+          <p><a class="btn btn-secondary" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/dog.html" %>" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="/WebClass/js/image/quokka.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Quokka</h2>
+          <p></p>
+          <p><a class="btn btn-secondary" href="<%= (user == null) ? "/WebClass/myblog/beforelogin.html"  : "/WebClass/myblog/quokka.html" %>" role="button">View details »</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="/WebClass/js/image/caaat.jpg" data-holder-rendered="true">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="/WebClass/js/image/doog.jpg" data-holder-rendered="true">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500" style="width: 500px; height: 500px;" src="/WebClass/js/image/quokkaa.jpg" data-holder-rendered="true">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+
+    </div>
+</body>
+</html>

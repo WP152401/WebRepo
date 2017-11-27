@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="org.dimigo.vo.UserVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h1>
-이름 : ${user.name }<br>
-별명 :${user.nickname }<br>
-아이디 : ${ user.id }<br>
-</h1>
+<%
+	Integer cnt = (Integer)session.getAttribute("cnt");
+	if(cnt==null){
+		out.println("최초 호출");
+		cnt=0;
+	}
+	session.setAttribute("cnt",++cnt);
+%>
+<h1>cnt : <%= cnt %></h1>
+<%= request.getHeader("Cookie") %>
 </body>
 </html>

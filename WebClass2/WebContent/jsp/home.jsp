@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.dimigo.vo.UserVO" %>
-<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextpath" value ="${pageContext.request.contextPath }"></c:set>
+<%@ taglib prefix = "fmt"  %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Home</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<link rel="stylesheet" href="${ contextPath}css/footer.css">
+<link rel="stylesheet" href="/WebClass/css/footer.css">
 <style>
 div.container {
   padding-top: 30px;
@@ -44,9 +43,9 @@ function menu_out(e) {
     	if(user==null) {
     %>
     <c:if test = "${ empty user }">
-    	<a class="text-bold text-white" style="text-decoration: none" href="${ contextPath}/login">Sign in</a>
+    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/login">Sign in</a>
     	<span class="text-bold text-white">&nbsp; or &nbsp;</span>
-    	<a class="text-bold text-white" style="text-decoration: none" href="${ contextPath}/signup">Sign up</a>
+    	<a class="text-bold text-white" style="text-decoration: none" href="/WebClass/signup">Sign up</a>
     </c:if>
     <!-- % } else { %-->
     <c:if test="${!empty user }">
@@ -57,7 +56,7 @@ function menu_out(e) {
 	    	${ user.name }님
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-	      	<form action="${ contextPath}/logout" method="post">
+	      	<form action="/WebClass/logout" method="post">
 	      		<button type="submit" class="dropdown-item">Sign out</button>
 	      	</form>
 	       	<div class="dropdown-divider"></div>
